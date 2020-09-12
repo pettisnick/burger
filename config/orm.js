@@ -1,4 +1,4 @@
-const connection = require("./connection.js");
+const connection = require("../config/connection.js");
 
 function printQuestionMarks(num) {
   var arr = [];
@@ -32,9 +32,9 @@ function objToSql(ob) {
 }
 
 //selectAll()
-const orm = {
+var orm = {
   selectAll: function(tableInput, cb) {
-    let queryString = "SELECT * FROM " + tableInput + ";";
+    var queryString = "SELECT * FROM " + tableInput + ";";
     connection.query(queryString, function (err, result) {
       if (err) {
         throw err;

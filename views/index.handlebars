@@ -1,49 +1,44 @@
 <!-- Create button that will submit user input into the database -->
 
 <h1>Burgers!</h1>
-
+<img src="assets\img\transparentburger.png" width="300" height="300" alt="Burger">
 <h2>Burgers that have not been devoured!</h2>
 
-<>
-  {{#each burgers}}
-  <!-- unless is similar to if -->
-    {{#unless devoured}}
-    <li>
-     {{burger_name}}
+<ul>
+{{#each burgers}}
+<!-- 'unless' is similar to 'if' -->
+{{#unless devoured}}
+<li>
+  {{burger_name}}
 
-      <button class="change-devoured" data-id="{{id}}" data-newDevoured="{{devoured}}">
-    {{/unless devoured}}Devour{{/unless}}
-    </button>
-    </li>
-    {{/unless}}
-  {{/each}}
+  <button class="change-devoured" data-id="{{id}}" data-newDevoured="{{devoured}}">
+    {{#unless devoured}}Devour{{/unless}}
+  </button>
+</li>
+{{/unless}}
+{{/each}}
 </ul>
 
 <h2>Burgers that have been devoured!</h2>
 
 <ul>
   {{#each burgers}}
-    {{#if devoured}}
-    <li>
-      {{burger_name}}
-    </li>
-      {{/if}}
+  {{#if devoured}}
+  <li>
+    {{burger_name}}
+  </li>
+  {{/if}}
   {{/each}}
 </ul>
 
 <h2>Add your own Burger!</h2>
-<form class="newBurger">
+<form class="create-form">
 
   <div class="form-group">
-    <label for="br">Name of Burger:</label>
-    <input type="text" id="br" name="burger_name">
+    <label for="cb">Name of Burger:</label>
+    <input type="text" id="cb" name="burger_name">
   </div>
 
-  <div class="form-group">
-    <label for="devoured">Devoured?</label><br>
-    <input type="radio" name="devoured" value="1" checked> Devoured!<br>
-    <input type="radio" name="devoured" value="0"> Not Devoured!
-  </div>
 
-  <button type="submit">Add Burger</button>
+  <button type="submit">Add Burger!</button>
 </form>
